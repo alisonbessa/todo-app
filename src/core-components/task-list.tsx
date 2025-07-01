@@ -7,7 +7,7 @@ import useTask from "../hooks/use-task";
 import { TaskState } from "../models/task";
 
 export default function TasksList() {
-  const { tasks } = useTasks();
+  const { tasks, loading } = useTasks();
   const { prepareTask } = useTask();
 
   function handleNewTask() {
@@ -21,7 +21,9 @@ export default function TasksList() {
           icon={PlusIcon}
           className="w-full"
           onClick={handleNewTask}
-          disabled={tasks.some((task) => task.state === TaskState.Creating)}
+          disabled={
+            tasks.some((task) => task.state === TaskState.Creating) || loading
+          }
         >
           New task
         </Button>
@@ -29,7 +31,7 @@ export default function TasksList() {
 
       <section className="space-y-2">
         {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} />
+          <TaskItem key={task.id} task={task} loading={loading} />
         ))}
       </section>
     </>

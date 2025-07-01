@@ -9,15 +9,17 @@ import PencilIcon from "../assets/icons/pencil.svg?react";
 import XIcon from "../assets/icons/x.svg?react";
 import CheckIcon from "../assets/icons/check.svg?react";
 import InputText from "../components/input-text";
+import Skeleton from "../components/skeleton";
 import { type Task, TaskState } from "../models/task";
 import { cx } from "class-variance-authority";
 import useTask from "../hooks/use-task";
 
 interface TaskItemProps {
   task: Task;
+  loading?: boolean;
 }
 
-export default function TaskItem({ task }: TaskItemProps) {
+export default function TaskItem({ task, loading }: TaskItemProps) {
   const [isEditing, setIsEditing] = React.useState(
     task?.state === TaskState.Creating
   );
@@ -65,20 +67,27 @@ export default function TaskItem({ task }: TaskItemProps) {
           <InputCheckbox
             checked={task.concluded}
             onChange={handleChangeTaskStatus}
+            loading={loading}
           />
-          <Text className={cx("flex-1", { "line-through": task?.concluded })}>
-            {task?.title}
-          </Text>
+          {loading ? (
+            <Skeleton className="flex-1 h-5" />
+          ) : (
+            <Text className={cx("flex-1", { "line-through": task?.concluded })}>
+              {task?.title}
+            </Text>
+          )}
           <div className="flex gap-1">
             <ButtonIcon
               icon={TrashIcon}
-              variant="tertiary"
+              variant="secondary"
               onClick={handleDeleteTask}
+              loading={loading}
             />
             <ButtonIcon
               icon={PencilIcon}
-              variant="tertiary"
+              variant="primary"
               onClick={handleEditTask}
+              loading={loading}
             />
           </div>
         </div>
@@ -97,8 +106,14 @@ export default function TaskItem({ task }: TaskItemProps) {
               variant="secondary"
               type="button"
               onClick={handleExitEditTask}
+              loading={loading}
             />
-            <ButtonIcon type="submit" icon={CheckIcon} variant="primary" />
+            <ButtonIcon
+              type="submit"
+              icon={CheckIcon}
+              variant="primary"
+              loading={loading}
+            />
           </div>
         </form>
       )}
