@@ -1,17 +1,18 @@
 # Todo App
 
-A modern, minimal, and beautiful Todo List application built with React, TypeScript, Vite, and TailwindCSS. This project demonstrates best practices in component-driven development, state management, and UI/UX design. Perfect for learning, inspiration, or as a foundation for your own productivity tools.
+A modern, minimal, and beautiful Todo List application built with React, TypeScript, Vite, and TailwindCSS. This project demonstrates best practices in component-driven development, state management, and UI/UX design. It is ideal for learning, inspiration, or as a foundation for your own productivity tools.
 
-<!-- TODO: Add screenshot -->
-<!-- ![screenshot](public/screenshot.png) -->
+## 🖼️ Screenshot
 
-## 🚀 Features
+![screenshot](public/screenshot.png)
+
+## ✨ Features
 
 - Add, edit, and delete tasks with a clean, intuitive interface
 - Mark tasks as completed with a single click
 - Inline editing for fast task updates
 - Persistent storage using localStorage (your tasks are safe!)
-- Responsive design, works great on desktop and mobile
+- Responsive design for desktop and mobile
 - Accessible and keyboard-friendly components
 - Component showcase page for design system reference
 
@@ -95,9 +96,13 @@ The output will be in the `dist/` folder.
 - **SVG Icons:** Imported as React components for flexibility and performance.
 - **Linting:** ESLint with recommended and type-aware rules ensures code quality.
 
-## ✨ Contributing
+## 🚀 Future Ideas
 
-This is a project used to review some techniques and test new packages, but if anyone wants to contribute, feel free to do so.
+For a list of planned features and ideas for future development, see [FUTURE_IDEAS.md](./FUTURE_IDEAS.md).
+
+## 🤝 Contributing
+
+This project is used to review techniques and test new packages, but contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## 📄 License
 
